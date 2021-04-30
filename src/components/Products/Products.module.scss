@@ -1,0 +1,14 @@
+@import '../../styles/vars';
+
+.productsContainer {
+  background-color: $base;
+  width: 100%;width: 90%;
+  min-height: calc(100vh - 70px);
+  margin: 20px auto ;
+  border-radius: 2px;
+  overflow: hidden;
+  
+  @media only screen and (min-width: $large) {
+    max-width: 70%;
+  }
+}
