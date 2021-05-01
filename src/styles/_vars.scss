@@ -5,8 +5,15 @@ $ligther: rgb(187, 186, 186);
 $base: #eee;
 $ligthGray: #fff;
 $text: #333;
+$button: #3483FA;
+
 // Breackpoints Media Query
 $small: 576px;    //Small
 $medium : 768px;	//Medium
 $large: 992px;	//Large
-$extraLarge: 1200px	//Extra large
+$extraLarge: 1200px;	//Extra large
+
+//Spacer
+$spacer: 32px;
+$spacer-half: 16px;
+$spacer-doub: 64px;

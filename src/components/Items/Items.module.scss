@@ -1,6 +1,6 @@
 @import '../../styles/vars';
 
-.productsContainer {
+.itemsContainer {
   background-color: $base;
   width: 100%;width: 90%;
   min-height: calc(100vh - 70px);
@@ -9,6 +9,6 @@
   overflow: hidden;
   
   @media only screen and (min-width: $large) {
-    max-width: 70%;
+    max-width: 80%;
   }
 }

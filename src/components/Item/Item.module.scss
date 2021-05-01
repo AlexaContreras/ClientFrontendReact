@@ -1,0 +1,58 @@
+@import "../../styles/vars";
+.link {
+  background-color: $ligthGray;
+  width: 100%;
+  padding: $spacer-half;
+  border-bottom: 2px solid $base;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  cursor: pointer;
+
+  @media (min-width: $medium) {
+    grid-template-columns: repeat(1, 180px auto 20%);
+    column-gap: $spacer-half;
+  }
+}
+
+.image {
+  width: 180px;
+  height: 180px;
+  justify-self: center;
+  border-radius: 4px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.info {
+  text-align: center;
+  color: $text;
+  margin-top: 20px;
+
+  @media (min-width: $medium) {
+    text-align: left;
+    margin: 0;
+    margin-top: $spacer-half;
+  }
+}
+
+.title {
+  font-size: 18px;
+
+  @media (min-width: $medium) {
+    margin-top: 36px;
+  }
+}
+
+.price {
+  font-size: 24px;
+}
+
+.location {
+  font-size: 12px;
+  @media (min-width: $medium) {
+    margin-top: $spacer-half;
+  }
+}

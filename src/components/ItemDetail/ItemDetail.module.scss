@@ -1,0 +1,93 @@
+@import "../../styles/vars";
+
+.itemDetailContainer {
+  background-color: white;
+  width: 100%;
+  width: 90%;
+  min-height: calc(100vh - 70px);
+  margin: 20px auto;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: $spacer;
+
+  @media (min-width: $large) {
+    max-width: 80%;
+  }
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  column-gap: $spacer;
+
+  @media (min-width: $large) {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+.image {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 80%;
+    justify-self: center;
+  }
+
+  @media (min-width: $large) {
+    width: 500px;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $extraLarge) {
+    width: 680px;
+  }
+
+ 
+}
+
+.info {
+  margin-top: $spacer;
+  button {
+    background-color: $button;
+    color: #fff;
+    width: calc(100% - 32px);
+    padding: $spacer-half;
+    border-radius: 4px;
+    border: none;
+
+    &:hover {
+      background-color: darken($color: $button, $amount: 5);
+    }
+  }
+}
+
+.condition {
+  font-size: 14px;
+  margin-bottom: $spacer-half;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: $spacer;
+}
+
+.price {
+  font-size: 46px;
+  margin-bottom: $spacer;
+}
+
+.description {
+margin-top: $spacer;
+  h1 {
+    font-size: 28px;
+    margin-bottom: $spacer;
+  }
+
+  p {
+    font-size: 16px;
+    max-width: 700px;
+  }
+}
