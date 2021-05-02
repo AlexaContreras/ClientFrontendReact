@@ -32,26 +32,24 @@ const filesRules = {
 };
 
 const fontsRules = {
-    test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-    use: [
-      {
-        loader: 'file-loader',
-        options: {
-          name: '[name].[contenthash].[ext]',
-          outputPath: 'assets/fonts',
-          esModule: false,
-        },
+  test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[name].[contenthash].[ext]',
+        outputPath: 'assets/fonts',
+        esModule: false,
       },
-    ],
-  };
- 
+    },
+  ],
+};
 
 module.exports = {
   entry: ['./src/index.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    
   },
   module: {
     rules: [javascriptRules, stylesRules, filesRules, fontsRules],
@@ -60,6 +58,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
+      favicon: 'public/favicon.ico',
       hash: true,
     }),
     new MiniCssExtractPlugin({
@@ -69,10 +68,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
 
-    modules: [
-      path.resolve(__dirname, 'src'),
-      'node_modules'
-    ]
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   devServer: {
     port: 3000,

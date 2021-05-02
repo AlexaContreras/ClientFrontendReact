@@ -1,76 +1,45 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
+import useEffectApi from '../hooks/useEffectApi';
 
 const AppProvider = ({ children }) => {
-    const history = useHistory();
-    const location = useLocation();
+  const location = useLocation();
+  const queryUrl = queryString.parse(location.search);
+  let queryToShow;
 
-    const queryUrl = queryString.parse(location.search);
+  if (Object.keys(queryUrl).length === 0) {
+    queryToShow = null;
+  } else {
+    queryToShow = queryUrl.search;
+  }
 
-    let queryToShow;
+  const [state, setState] = useState({
+    query: queryToShow,
+    id: null,
+    items: null,
+    detail: null,
+  });
 
-    if (Object.keys(queryUrl).length === 0) {
-        queryToShow = null
-    } else {
-        queryToShow = queryUrl.search;
-    }
+  const {
+    query, id,
+  } = state;
 
+  useEffectApi(query, `?query=${query}`, setState, state, `/items?search=${query}`, 'items');
+  useEffectApi(id, `/${id}`, setState, state, `/items/${id}`, 'detail');
 
-    const [state, setState] = useState({
-        query: queryToShow,
-        id: null,
-        items: null,
-        detail: null
-    })
-
-
-    const { query, id, items, detail } = state;
-
-    useEffect(() => {
-        if (query != null) {
-            axios.get(`http://localhost:5000/api/items?query=${query}`)
-                .then(function (response) {
-                    setState({ ...state, items: response.data })
-                    history.push(`/items?search=${query}`);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                    history.push('/not-found');
-                })
-        }
-    }, [query])
-
-    useEffect(() => {
-        if (id != null) {
-            axios.get(`http://localhost:5000/api/items/${id}`)
-                .then(function (response) {
-                    setState({ ...state, detail: response.data })
-                    history.push(`/items/${id}`);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                    if (query != null) {
-                        history.push('/not-found');
-                    }
-                })
-        }
-    }, [id])
-
-
-    return (
-        <>
-            <AppContext.Provider value={[state, setState]}>
-                {children}
-            </AppContext.Provider>
-        </>
-    )
-}
+  return (
+    <>
+      <AppContext.Provider value={[state, setState]}>
+        {children}
+      </AppContext.Provider>
+    </>
+  );
+};
 
 export default AppProvider;
 export const AppContext = createContext();
-
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

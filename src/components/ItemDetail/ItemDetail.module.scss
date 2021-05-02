@@ -5,7 +5,7 @@
   width: 100%;
   width: 90%;
   min-height: calc(100vh - 70px);
-  margin: 20px auto;
+  margin: 20px auto 60px;
   border-radius: 2px;
   overflow: hidden;
   padding: $spacer;
@@ -32,12 +32,15 @@
   img {
     width: 80%;
     justify-self: center;
+    max-height: 600px;
+    object-fit: contain;
   }
 
   @media (min-width: $large) {
     width: 500px;
     img {
       width: 100%;
+     
     }
   }
 
@@ -77,6 +80,15 @@
 .price {
   font-size: 46px;
   margin-bottom: $spacer;
+  position: relative;
+
+  img {
+    max-width: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+  }
 }
 
 .description {
@@ -89,5 +101,19 @@ margin-top: $spacer;
   p {
     font-size: 16px;
     max-width: 700px;
+  }
+}
+
+.loaderContainer {
+  background-color: $base;
+  width: 100%;width: 90%;
+  min-height: calc(100vh - 70px);
+  margin: 20px auto ;
+  border-radius: 2px;
+  overflow: hidden;
+  height: 800px;
+  
+  @media only screen and (min-width: $large) {
+    max-width: 80%;
   }
 }

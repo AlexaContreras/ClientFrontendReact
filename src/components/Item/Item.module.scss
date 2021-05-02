@@ -28,7 +28,7 @@
 
 .info {
   text-align: center;
-  color: $text;
+  color: $mainGray;
   margin-top: 20px;
 
   @media (min-width: $medium) {
@@ -48,6 +48,14 @@
 
 .price {
   font-size: 24px;
+  position: relative;
+
+  img {
+    max-width: 23px;
+    margin-left: 15px;
+    top: 5px;
+    position: absolute;
+  }
 }
 
 .location {

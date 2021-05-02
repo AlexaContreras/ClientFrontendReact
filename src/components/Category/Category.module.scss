@@ -1,0 +1,27 @@
+@import "../../styles/vars";
+
+.container {
+    background-color: $base;
+    width: 100%;
+    width: 90%;
+    margin: $spacer-half auto;
+    border-radius: 2px;
+    overflow: hidden;
+
+    @media only screen and (min-width: $large) {
+        max-width: 80%;
+    }
+}
+
+.categories {
+    position: relative;
+    span {
+        font-size: 14px;
+        margin-right: 5px;
+        color: $grayCategory;
+    }
+}
+
+.arrow:last-child {
+   display: none;
+  }

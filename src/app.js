@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ItemDetail } from './components/ItemDetail/ItemDetail';
-import { Items } from './components/Items/Items';
-import { Main } from './components/Main/Main';
-import { NotFound } from './components/NotFound/NotFound';
-import AppProvider from './Context/Context';
+import { Helmet } from 'react-helmet';
 
+import SearchWrapper from './components/SearchWrapper/SearchWrapper';
+import AppProvider from './Context/Context';
 import './styles/styles.scss';
 
-export const App = () => {
+const Items = React.lazy(() => import('./components/Items/Items'));
+const ItemDetail = React.lazy(() => import('./components/ItemDetail/ItemDetail'));
+const NotFound = React.lazy(() => import('./components/NotFound/NotFound'));
 
-  return (
+const Home = () => (
+  <Helmet>
+    <title>Mercado Libre</title>
+  </Helmet>
+);
+
+const App = () => (
+  <>
     <AppProvider>
-      <Main />
+      <SearchWrapper />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path='/items' component={Items} />
-        <Route exact path='/items/:id' component={ItemDetail} />
-        <Route component={NotFound} />
+        <Suspense fallback={<p>Loading</p>}>
+          <Route exact path="/items" component={Items} />
+          <Route exact path="/items/:id" component={ItemDetail} />
+          <Route component={NotFound} />
+        </Suspense>
       </Switch>
     </AppProvider>
-  );
-};
+  </>
+);
 
-const Home = () => {
-  return (
-    <>
-    </>
-  )
-}
+export default App;
