@@ -1,4 +1,4 @@
-#Mercado Libre challenge
+# Mercado Libre 
 
 ## Beginning 🚀
 
@@ -16,7 +16,6 @@ Production Build
 ```bash
 npm run build
 ```
-![img_nav](https://raw.githubusercontent.com/AlexaContreras/ClientFrontendReact/src/assets/primera-vista.png)
 
 ## Description 📋
 The page consists of a search engine that has the product listing page and the product detail page with the use of the mercadolibre API for developers.
