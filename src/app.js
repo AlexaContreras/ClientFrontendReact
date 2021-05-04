@@ -12,7 +12,7 @@ const NotFound = React.lazy(() => import('./components/NotFound/NotFound'));
 
 const Home = () => (
   <Helmet>
-    <title>Mercado Libre</title>
+    <title>Mercado Libre Argentina</title>
   </Helmet>
 );
 
@@ -20,14 +20,14 @@ const App = () => (
   <>
     <AppProvider>
       <SearchWrapper />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Suspense fallback={<p>Loading</p>}>
+      <Suspense fallback="">
+        <Switch>
+          <Route exact path="/" component={Home} />
           <Route exact path="/items" component={Items} />
           <Route exact path="/items/:id" component={ItemDetail} />
-          <Route component={NotFound} />
-        </Suspense>
-      </Switch>
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Suspense>
     </AppProvider>
   </>
 );

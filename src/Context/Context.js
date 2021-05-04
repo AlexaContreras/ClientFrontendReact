@@ -1,34 +1,30 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
-import queryString from 'query-string';
 import useEffectApi from '../hooks/useEffectApi';
 
 const AppProvider = ({ children }) => {
-  const location = useLocation();
-  const queryUrl = queryString.parse(location.search);
-  let queryToShow;
-
-  if (Object.keys(queryUrl).length === 0) {
-    queryToShow = null;
-  } else {
-    queryToShow = queryUrl.search;
-  }
-
+  // The status is initialized
   const [state, setState] = useState({
-    query: queryToShow,
+    query: null,
     id: null,
     items: null,
     detail: null,
   });
 
-  const {
-    query, id,
-  } = state;
+  const { query, id } = state;
 
-  useEffectApi(query, `?query=${query}`, setState, state, `/items?search=${query}`, 'items');
+  // The useEffect is triggered to request the API data.
+  useEffectApi(
+    query,
+    `?query=${query}`,
+    setState,
+    state,
+    `/items?search=${query}`,
+    'items'
+  );
   useEffectApi(id, `/${id}`, setState, state, `/items/${id}`, 'detail');
 
+  // The Provider is created
   return (
     <>
       <AppContext.Provider value={[state, setState]}>

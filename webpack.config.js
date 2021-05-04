@@ -71,7 +71,7 @@ module.exports = {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   devServer: {
-    port: 3000,
+    port: 4000,
     contentBase: path.join(__dirname, 'public/'),
   },
 };
