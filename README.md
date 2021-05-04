@@ -16,7 +16,15 @@ Production Build
 ```bash
 npm run build
 ```
+## Sample images 🚀
+##### Home page
+![alt text](https://github.com/AlexaContreras/ClientFrontendReact/blob/master/src/assets/primera-vista.png?raw=true)
 
+##### Products page
+![alt text](https://github.com/AlexaContreras/ClientFrontendReact/blob/master/src/assets/products-page.png?raw=true)
+
+##### Product detail
+![alt text](https://github.com/AlexaContreras/ClientFrontendReact/blob/master/src/assets/detail-page.png?raw=true)
 ## Description 📋
 The page consists of a search engine that has the product listing page and the product detail page with the use of the mercadolibre API for developers.
 
