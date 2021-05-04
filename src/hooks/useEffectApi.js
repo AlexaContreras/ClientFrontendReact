@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const useEffectApi = (key, url, setState, state, push, stateToChange) => {
   const history = useHistory();
-  const baseUrl = 'http://localhost:5000/api/items';
+  const baseUrl = 'https://api-meli-server.herokuapp.com/api/items';
 
   useEffect(() => {
     // We evaluate if the key is different from null and make the request to API
