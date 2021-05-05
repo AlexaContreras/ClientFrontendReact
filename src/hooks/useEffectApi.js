@@ -18,8 +18,8 @@ const useEffectApi = (key, url, setState, state, push, stateToChange) => {
         })
         .catch((error) => {
           // handle error
-          console.log(error);
           history.push('/not-found');
+          throw new Error(error);
         });
     }
   }, [key]);

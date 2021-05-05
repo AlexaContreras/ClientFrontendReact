@@ -40,15 +40,12 @@
     width: 500px;
     img {
       width: 100%;
-     
     }
   }
 
   @media (min-width: $extraLarge) {
     width: 680px;
   }
-
- 
 }
 
 .info {
@@ -112,7 +109,7 @@ margin-top: $spacer;
   border-radius: 2px;
   overflow: hidden;
   height: 800px;
-  
+
   @media only screen and (min-width: $large) {
     max-width: 80%;
   }

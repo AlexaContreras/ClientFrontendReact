@@ -47,6 +47,15 @@ const Item = ({
 export default Item;
 
 Item.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  item: PropTypes.object.isRequired,
+  item: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      picture: PropTypes.string.isRequired,
+      free_shipping: PropTypes.string.isRequired
+
+    }),
+  ).isRequired,
 };
