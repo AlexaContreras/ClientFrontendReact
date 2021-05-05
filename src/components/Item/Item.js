@@ -32,7 +32,7 @@ const Item = ({
       <div className={styles.info}>
         <div className={styles.price}>
           {price.currency === 'ARS' ? '$ ' : 'U$S '}
-          {price.amount}
+          {price.amount}{price.decimals != '' ? `,${price.decimals}` : ''}
           {free_shipping && <img src={freeShipping} alt='free shipping' />}
         </div>
         <p className={styles.title}>{title}</p>

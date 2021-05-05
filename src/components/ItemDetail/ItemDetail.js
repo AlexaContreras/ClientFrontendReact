@@ -57,7 +57,7 @@ const ItemDetail = () => {
                     <h2 className={styles.title}>{detail.item.title}</h2>
                     <div className={styles.price}>
                       {detail.item.price.currency === 'ARS' ? '$ ' : 'U$S '}
-                      {detail.item.price.amount}
+                      {detail.item.price.amount}{detail.item.price.decimals != '' ? `,${detail.item.price.decimals}` : ''}
                       {detail.item.free_shipping && (
                         <img src={freeShipping} alt='free shipping' />
                       )}
