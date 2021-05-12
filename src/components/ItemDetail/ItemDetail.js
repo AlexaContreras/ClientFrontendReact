@@ -18,7 +18,7 @@ const ItemDetail = () => {
   // The change of state is set with the parameter obtained from the url.
   useEffect(() => {
     setState({ ...state, id });
-  }, [state.id]);
+  }, [id]);
 
   return (
     <>
